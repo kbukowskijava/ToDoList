@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right, #00b4db, #0083b0);
+    color: white;
+    font-family: "Roboto Light", sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    font-size: 0.8rem;
+}
+
+header, form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button{
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: aliceblue;
+}
+
+form button{
+    color: #00b4db;
+    background: whitesmoke;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover{
+    background: #00b4db;
+    color: whitesmoke;
+}
