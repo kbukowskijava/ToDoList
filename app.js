@@ -3,10 +3,12 @@ const toDoInput = document.querySelector(".todo-input");
 const toDoButton = document.querySelector(".todo-button");
 const toDoList = document.querySelector(".todo-list");
 const toDoErrorMessage = document.querySelector(".error-message");
+const filterToDo = document.querySelector(".filter-todo");
 
 //Event Listeners
 toDoButton.addEventListener('click', addToDo);
 toDoList.addEventListener("click", deleteCheck);
+filterToDo.addEventListener("click",filterTodo);
 
 //Functions
 function addToDo(event) {
@@ -46,14 +48,31 @@ function deleteCheck(event) {
         const todo = item.parentElement;
         todo.classList.add('fall');
         //Remove after animation ends
-        todo.addEventListener('transitionend', function (){
+        todo.addEventListener('transitionend', function () {
             todo.remove();
         });
     }
 
     //Perform operation on check mark
-    if(item.classList[0] === "complete-btn"){
+    if (item.classList[0] === "complete-btn") {
         const todo = item.parentElement;
         todo.classList.toggle('completed');
     }
+}
+
+function filterTodo(event) {
+    const todos = toDoList.childNodes;
+    todos.forEach(function (todo) {
+        switch (event.target.value) {
+            case "all":
+                todo.style.display = "flex"
+                break;
+            case "done":
+                if (todo.classList.contains('done')) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+        }
+    });
 }
